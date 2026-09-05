@@ -20,7 +20,9 @@ class AgendamentoController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request->all());
+        $agendamento = Agendamento::create($request->all());
+
+        return redirect()->route('home');
     }
 
     /**
