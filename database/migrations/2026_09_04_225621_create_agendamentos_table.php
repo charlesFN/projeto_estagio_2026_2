@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
+            $table->string('cliente');
+            $table->string('email');
+            $table->string('animal');
+            $table->enum('servico', ['consulta', 'vacinacao', 'banho', 'tosa']);
+            $table->date('data');
+            $table->enum('status', ['pendente','confirmado', 'cancelado'])->default('pendente');
             $table->timestamps();
         });
     }
