@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AgendamentoController extends Controller
 {
@@ -13,6 +14,19 @@ class AgendamentoController extends Controller
     public function index()
     {
         return view('cliente.index');
+    }
+
+    public function dashboard()
+    {
+        $agendamentos = Agendamento::latest()->paginate(50);    
+
+        if (Auth::check()) {
+            return view('admin.index', compact('agendamentos'));
+        } 
+
+        if (Auth::guest()) {
+            return redirect()->route('home');
+        }
     }
 
     /**
