@@ -20,7 +20,7 @@ Uma das coisas que inicialmente eu não havia colocado no formulário, era a op�
 
 ## Limitações
 
-O sistema de agendamento é bastante simples, não possui seleção de horário e nem bloqueia o usuário de selecionar uma data anterior ao dia atual. Algo que poderia ser implementado, mas por questão de tempo eu acabei não conseguindo.
+O sistema de agendamento é bastante simples, não possuindo seleção de horário. Algo que poderia ser implementado, mas por questão de tempo eu acabei não conseguindo.
 
 Além disso, não possui um sistema de pesquisa para o administrador, nem ordenação de registros com base em outras colunas, também em função do tempo.
 
@@ -34,7 +34,9 @@ Apesar do sistema inicialmente ser simples, vejo que ele possui uma grande marge
 - Filtragem de dados;
 - Formulário de agendamento mais detalhado onde: o cliente seleciona apenas datas disponíveis a partir do dia atual (algo que seria mostrado para ele com base nas agendas dos funcionários), ao selecionar a data o cliente se depara com todos os profissionais disponíveis naquele dia com base no serviço desejado e seleciona um dos horários disponíveis;
 - Envio de e-mails automáticos para o cliente, avisando-o sobre a confirmação ou cancelamento do seu agendamento;
-- Possibilidade de pagamento online caso o agendamento seja confirmado.
+- Dashboard com as a quantidade total de agendamentos, e o número de pendentes, confirmados e cancelados;
+- Possibilidade de pagamento online caso o agendamento seja confirmado;
+- Mais opções de status, como concluído ou atrasado.
 
 # Inteligência Artificial
 

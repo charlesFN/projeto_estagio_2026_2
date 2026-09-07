@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", [AgendamentoController::class,"index"])->name("home");
-Route::post("/agendar", [AgendamentoController::class,"create"])->name("agendar");
+Route::post("/agendar", [AgendamentoController::class,"store"])->name("agendar");
 
 Route::get("/dashboard", [AgendamentoController::class,"dashboard"])->middleware(['auth', 'verified'])->name("dashboard");
 

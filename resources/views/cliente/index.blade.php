@@ -206,6 +206,14 @@
         </div>
     @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-ban-fill me-2"></i>
+                {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <section id="home" class="hero">
         <div class="container">
             <div class="row align-items-center">
@@ -345,53 +353,82 @@
 
                         <div class="col-md-6">
                             <label for="cliente" class="form-label">Nome completo</label>
-                            <input type="text" name="cliente" class="form-control" id="cliente" required>
-                            <div class="invalid-feedback">Informe seu nome.</div>
+                            <input type="text" name="cliente" class="form-control @error('cliente') is-invalid @enderror" id="cliente" {{-- required --}}>
+                            @error('cliente')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" name="email" class="form-control" id="email" required>
-                            <div class="invalid-feedback">Informe um e-mail válido.</div>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" {{-- required --}}>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label for="animal" class="form-label">Pet</label>
-                            <select class="form-select" name="animal" id="animal" required>
-                            <option value="{{ null }}" selected disabled>Selecione o tipo de pet...</option>
-                            <option value="cachorro">Cachorro</option>
-                            <option value="gato">Gato</option>
+                            <label for="animal" class="form-label @error('animal') is-invalid @enderror">Pet</label>
+                            <select class="form-select" name="animal" id="animal" {{-- required --}}>
+                                <option value="{{ null }}" selected disabled>Selecione o tipo de pet...</option>
+                                <option value="cachorro">Cachorro</option>
+                                <option value="gato">Gato</option>
                             </select>
-                            <div class="invalid-feedback">Selecione o tipo de pet.</div>
+                            @error('animal')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label for="nome_animal" class="form-label">Nome do pet</label>
-                            <input type="text" class="form-control" name="nome_animal" id="nome_animal" placeholder="Ex: Rex, Mimi..." required>
-                            <div class="invalid-feedback">Informe o nome do seu pet.</div>
+                            <label for="nome_animal" class="form-label @error('nome_animal') is-invalid @enderror">Nome do pet</label>
+                            <input type="text" class="form-control" name="nome_animal" id="nome_animal" placeholder="Ex: Rex, Mimi..." {{-- required --}}>
+                            @error('nome_animal')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label for="servico" class="form-label">Tipo de serviço</label>
-                            <select class="form-select" name="servico" id="servico" required>
-                            <option value="{{ null }}" selected disabled>Selecione um serviço</option>
-                            <option value="consulta">Consulta veterinária</option>
-                            <option value="vacinacao">Vacinação</option>
-                            <option value="banho">Banho</option>
-                            <option value="tosa">Banho e tosa</option>
+                            <label for="servico" class="form-label @error('servico') is-invalid @enderror">Tipo de serviço</label>
+                            <select class="form-select" name="servico" id="servico" {{-- required --}}>
+                                <option value="{{ null }}" selected disabled>Selecione um serviço</option>
+                                <option value="consulta">Consulta veterinária</option>
+                                <option value="vacinacao">Vacinação</option>
+                                <option value="banho">Banho</option>
+                                <option value="tosa">Banho e tosa</option>
                             </select>
-                            <div class="invalid-feedback">Selecione um serviço.</div>
+                            @error('servico')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label for="data" class="form-label">Data desejada</label>
-                            <input type="date" class="form-control" name="data" id="data" required>
-                            <div class="invalid-feedback">Escolha uma data.</div>
+                            <label for="data" class="form-label @error('data') is-invalid @enderror">Data desejada</label>
+                            <input type="date" class="form-control" name="data" id="data" {{-- required --}}>
+                            @error('data')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-12">
-                            <label for="observacoes" class="form-label">Observações <span class="fw-normal text-muted">(opcional)</span></label>
+                            <label for="observacoes" class="form-label @error('observacoes') is-invalid @enderror">Observações <span class="fw-normal text-muted">(opcional)</span></label>
                             <textarea name="observacoes" id="observacoes" class="form-control" name="observacoes" placeholder="Alguma informação importante?"></textarea>
+                            @error('observacoes')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-12 text-center pt-2">
