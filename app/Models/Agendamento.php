@@ -12,8 +12,10 @@ class Agendamento extends Model
         "cliente",
         "email",
         "animal",
+        "nome_animal",
         "servico",
         "data",
+        "observacoes",
         "status"
     ];
 }
