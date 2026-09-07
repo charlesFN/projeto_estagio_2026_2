@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('agendamentos', function (Blueprint $table) {
             $table->string('nome_animal')->after('animal');
-            $table->text('observacoes')->after('data');
+            $table->text('observacoes')->after('data')->nullable();
         });
     }
 

@@ -332,44 +332,64 @@
             </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-8">
-                    <form action="" id="bookingForm" class="booking-card row g-4">
+                    <form action="{{ route('agendar') }}" id="bookingForm" class="booking-card row g-4" method="POST">
+                        @csrf
+
                         <div class="col-md-6">
-                            <label for="nome" class="form-label">Nome completo</label>
-                            <input type="text" class="form-control" id="nome" required>
+                            <label for="cliente" class="form-label">Nome completo</label>
+                            <input type="text" name="cliente" class="form-control" id="cliente" required>
                             <div class="invalid-feedback">Informe seu nome.</div>
                         </div>
+
                         <div class="col-md-6">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" name="email" class="form-control" id="email" required>
                             <div class="invalid-feedback">Informe um e-mail válido.</div>
                         </div>
+
                         <div class="col-md-6">
-                            <label for="animal" class="form-label">Animal</label>
-                            <input type="text" class="form-control" id="animal" placeholder="Ex: Rex, Mimi..." required>
+                            <label for="animal" class="form-label">Pet</label>
+                            <select class="form-select" name="animal" id="animal" required>
+                            <option value="{{ null }}" selected disabled>Selecione o tipo de pet...</option>
+                            <option value="cachorro">Cachorro</option>
+                            <option value="gato">Gato</option>
+                            </select>
+                            <div class="invalid-feedback">Selecione o tipo de pet.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="nome_animal" class="form-label">Nome do pet</label>
+                            <input type="text" class="form-control" name="nome_animal" id="nome_animal" placeholder="Ex: Rex, Mimi..." required>
                             <div class="invalid-feedback">Informe o nome do seu pet.</div>
                         </div>
+
                         <div class="col-md-6">
                             <label for="servico" class="form-label">Tipo de serviço</label>
-                            <select class="form-select" id="servico" required>
-                            <option value="" selected disabled>Selecione um serviço</option>
+                            <select class="form-select" name="servico" id="servico" required>
+                            <option value="{{ null }}" selected disabled>Selecione um serviço</option>
                             <option value="consulta">Consulta veterinária</option>
                             <option value="vacinacao">Vacinação</option>
-                            <option value="banho">Banho e tosa</option>
+                            <option value="banho">Banho</option>
+                            <option value="tosa">Banho e tosa</option>
                             </select>
                             <div class="invalid-feedback">Selecione um serviço.</div>
                         </div>
+
                         <div class="col-md-6">
                             <label for="data" class="form-label">Data desejada</label>
-                            <input type="date" class="form-control" id="data" required>
+                            <input type="date" class="form-control" name="data" id="data" required>
                             <div class="invalid-feedback">Escolha uma data.</div>
                         </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-12">
                             <label for="observacoes" class="form-label">Observações <span class="fw-normal text-muted">(opcional)</span></label>
-                            <input type="text" class="form-control" id="observacoes" placeholder="Alguma informação importante?">
+                            <textarea name="observacoes" id="observacoes" class="form-control" name="observacoes" placeholder="Alguma informação importante?"></textarea>
                         </div>
+
                         <div class="col-12 text-center pt-2">
                             <button type="submit" class="btn btn-cta btn-lg px-5">Solicitar agendamento</button>
                         </div>
+                        
                         <div id="successMessage" class="success-note d-none" role="status">
                             <i class="bi bi-check-circle-fill"></i>Solicitação enviada! Entraremos em contato para confirmar o horário.
                         </div>
@@ -427,46 +447,5 @@
     </a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
-
-    <main>
-        <form action="{{ route('agendar') }}" method="POST">
-            @csrf
-
-            <div>
-                <label for="cliente">Nome</label>
-                <input type="text" name="cliente" id="cliente">
-            </div>
-
-            <div>
-                <label for="email">E-mail</label>
-                <input type="email" name="email" id="email">
-            </div>
-
-            <div>
-                <label for>Animal</label>
-                <input type="text" name="animal" id="animal">
-            </div>
-
-            <div>
-                <label for="servico">Serviço</label>
-                <select name="servico" id="servico">
-                    <option value="">Escolha uma opção</option>
-                    <option value="consulta">Consulta</option>
-                    <option value="vacinacao">Vacinação</option>
-                    <option value="banho">Banho</option>
-                    <option value="tosa">Tosa</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="data">Data</label>
-                <input type="date" name="data" id="data">
-            </div>
-
-            <div>
-                <button type="submit">Enviar</button>
-            </div>
-        </form>
-    </main>
 </body>
 </html>
