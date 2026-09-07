@@ -20,7 +20,7 @@ class AgendamentoController extends Controller
 
     public function dashboard()
     {
-        $agendamentos = Agendamento::latest()->paginate(50);
+        $agendamentos = Agendamento::latest()->paginate(10);
         
         if (Auth::check()) {
             return view('admin.index', compact('agendamentos'));

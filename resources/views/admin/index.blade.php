@@ -139,6 +139,11 @@
                 </table>
             </div>
         </div>
+        @if ($agendamentos->hasPages())
+            <div>
+                {{ $agendamentos->links() }}
+            </div>
+        @endif
     </div>
 
     @foreach ($agendamentos as $agendamento)
