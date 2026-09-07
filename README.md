@@ -1,58 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AgendaPet
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de agendamento online para petshops e clínicas veterinárias, desenvolvido em Laravel. A aplicação permite que clientes solicitem serviços para seus pets de forma simples e rápida, enquanto a equipe administrativa gerencia todos os agendamentos em uma área restrita.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🌟 Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🐶 Para o Cliente
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Formulário de Agendamento Simples:**
+    - Preenchimento do nome completo do tutor e e-mail.
+    - Informações do pet (Nome do animal e tipo: **Cachorro** ou **Gato**).
+    - Escolha do serviço desejado:
+        - 🩺 **Consulta**
+        - 💉 **Vacinação**
+        - 🧼 **Banho**
+        - ✂️ **Banho e Tosa**
+    - Seleção da data desejada para o atendimento.
+    - Observações quando necessárias.
 
-## Learning Laravel
+### 🛡️ Para o Administrador
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Painel Administrativo:** Visualização organizada de todos os agendamentos realizados pelos clientes.
+- **Autenticação Segura:** Sistema de Login para restrição de acesso ao painel (desenvolvido com Laravel Breeze).
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🎨 Design & Usabilidade
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Interface Responsiva:** Visual adaptável para computadores, tablets e celulares utilizando Bootstrap.
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🚀 Tecnologias Utilizadas
+
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- **[PHP v8.3](https://www.php.net/)** — Linguagem de programação backend
+- **[Composer v2.10.3](https://getcomposer.org/)** (Gerenciador de dependências do PHP)
+- **[Laravel 13](https://laravel.com/)** (Framework PHP)
+- **[Laravel Breeze v2.4](https://laravel.com/docs/starter-kits#laravel-breeze)** — Starter kit para estrutura de autenticação
+- **[Laragon v8.7.0 - Full](https://laragon.org/)** (Ambiente de desenvolvimento local recomendado)
+- **[MySQL](https://www.mysql.com/)** (Banco de Dados)
+- **[Bootstrap v5.3.3](https://getbootstrap.com/)** (Framework CSS para o visual e componentes do Frontend)
+- **[Node.js v24.20.0](https://nodejs.org/) & NPM** (Para compilação de assets com Vite)
+
+---
+
+## 📋 Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado em sua máquina:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (Versão LTS recomendada)
+- [Laragon](https://laragon.org/download/) _(Recomendado, pois já vem acompanhado do PHP, MySQL e Apache/Nginx)_
+
+> 💡 **Nota sobre o Laragon:** Abra o Laragon e clique em **"Start All"** para iniciar os serviços do Apache/Nginx e do MySQL antes de rodar o projeto. Além disso, pode ser que apareça uma tela solicitando uma licença, mas basta clicar em **"Close"** que funcionará normalmente.
+> Também é necessário adicionar o Laragon às **"Variáveis de Ambiente"**.
+> Clique com o botão direito na tela do Laragon -> Ferramentas -> Variáveis
+> de ambiente no PATH -> Add Laragon to PATH. Após isso reinicie o PC.
+
+- [Composer v2.10.3](https://getcomposer.org/)
+
+---
+
+## 🔧 Instalação e Configuração
+
+Siga o passo a passo abaixo para rodar a aplicação no seu ambiente local:
+
+### 1. Clonar o repositório
+
+Abra o Git Bash em C:\laragon\www e clone o repositório.
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+https://github.com/charlesFN/projeto_estagio_2026_2.git
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Acessar a pasta do projeto
 
-## Contributing
+```
+cd projeto_estagio_2026_2
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Instalar as dependências do PHP (Composer)
 
-## Code of Conduct
+```
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Instalar as dependências do Frontend (Node.js & Bootstrap)
 
-## Security Vulnerabilities
+```
+npm install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. Configurar o arquivo de ambiente(.env)
 
-## License
+Faça uma cópia do arquivo `.env.example` e renomie-o para `.env`:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+cp .env.example .env
+```
+
+### 6. Configurar o Banco de Dados (MySQL)
+
+#### 1. Abra a ferramenta de banco de dados do Laragon (clicando no botão Database para abrir o HeidiSQL).
+
+#### 2. Crie um novo banco de dados com o nome da sua preferência (ex: agendapet).
+
+#### 3. Abra o arquivo `.env` na raiz do projeto e ajuste as credenciais de banco de dados conforme abaixo (padrão do Laragon):
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_do_seu_banco
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+_(Certifique-se de remover a linha `DB_CONNECTION=sqlite` ou substituí-la por `mysql` se necessário)._
+
+### 7. Gerar chave da aplicação
+
+```
+php artisan key:generate
+```
+
+### 8. Executar as Migrations do Banco de Dados
+
+Este comando criará todas as tabelas necessárias no seu banco MySQL, incluindo as tabelas de autenticação do Breeze:
+
+```
+php artisan migrate --seed
+```
+
+_(O --seed é importante pois com ele será criado o usuário administrador)._
+
+---
+
+## ⚡ Executando o Projeto
+
+Para visualizar a aplicação funcionando, você precisará rodar o servidor backend e o compilador frontend. Para isso, você deve primeiramente abrir a pasta raiz do projeto no seu editor de código.
+
+### 1. Compilar os assets (CSS/Bootstrap/JS):
+
+No terminal do editor de código, execute:
+
+```
+npm run dev
+```
+
+_(Mantenha esse terminal aberto enquanto estiver desenvolvendo/testando)._
+
+### 2. Iniciar o servidor local do Laravel:
+
+Abra uma nova aba/janela do terminal e rode:
+
+```
+php artisan serve
+```
+
+Acesse a aplicação no seu navegador através do endereço:
+
+👉 http://localhost:8000
+
+> 💡 **Acessando o painel do administrador:** O painel do administrador pode ser acessado através da rota http://localhost:8000/login utilizando o **E-mail** `admin@gmail.com` e **Senha** `123456`.
