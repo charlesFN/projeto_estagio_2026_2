@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class AgendamentoController extends Controller
 {
@@ -18,8 +19,8 @@ class AgendamentoController extends Controller
 
     public function dashboard()
     {
-        $agendamentos = Agendamento::latest()->paginate(50);    
-
+        $agendamentos = Agendamento::latest()->paginate(50);
+        
         if (Auth::check()) {
             return view('admin.index', compact('agendamentos'));
         } 

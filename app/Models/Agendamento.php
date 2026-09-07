@@ -18,4 +18,8 @@ class Agendamento extends Model
         "observacoes",
         "status"
     ];
+
+    protected $casts = [
+        "data"=> "date",
+    ];
 }
