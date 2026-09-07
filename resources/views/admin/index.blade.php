@@ -15,6 +15,33 @@
         </div>
     </div>
 
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3">
+            <div class="stat-card">
+                <span class="stat-card__value">{{ $total }}</span>
+                <span class="stat-card__label">Total</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--pendente">
+                <span class="stat-card__value">{{ $pendentes }}</span>
+                <span class="stat-card__label">Pendentes</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--confirmado">
+                <span class="stat-card__value">{{ $confirmados }}</span>
+                <span class="stat-card__label">Confirmados</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="stat-card stat-card--cancelado">
+                <span class="stat-card__value">{{ $cancelados }}</span>
+                <span class="stat-card__label">Cancelados</span>
+            </div>
+        </div>
+    </div>
+
     <div class="py-6 d-block d-md-none" x-data>
         <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8 space-y-6">
             @if (session('success'))

@@ -21,9 +21,14 @@ class AgendamentoController extends Controller
     public function dashboard()
     {
         $agendamentos = Agendamento::latest()->paginate(10);
+
+        $total = Agendamento::count();
+        $pendentes = Agendamento::where('status', 'pendente')->count();
+        $confirmados = Agendamento::where('status', 'confirmado')->count();
+        $cancelados = Agendamento::where('status', 'cancelado')->count();
         
         if (Auth::check()) {
-            return view('admin.index', compact('agendamentos'));
+            return view('admin.index', compact('agendamentos', 'total','pendentes','confirmados','cancelados'));
         } 
 
         if (Auth::guest()) {
@@ -77,13 +82,5 @@ class AgendamentoController extends Controller
         Agendamento::create($request->all());
 
         return redirect()->route('home')->with('success', 'Enviado com sucesso!');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Agendamento $agendamento)
-    {
-        //
     }
 }

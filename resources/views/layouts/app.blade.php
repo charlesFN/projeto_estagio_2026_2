@@ -64,7 +64,7 @@
             .stat-card__label { color: var(--muted); font-size: .82rem; font-weight: 700; }
             .stat-card--pendente .stat-card__value { color: var(--amber); }
             .stat-card--confirmado .stat-card__value { color: var(--green); }
-            .stat-card--concluido .stat-card__value { color: var(--blue-dark); }
+            .stat-card--cancelado .stat-card__value { color: var(--red); }
 
             .admin-filters .form-control, .admin-filters .form-select {
                 border: 1.5px solid var(--line); border-radius: 10px; padding: .55rem .9rem;
@@ -86,7 +86,6 @@
             .status-badge { display: inline-block; padding: .3rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 700; white-space: nowrap; }
             .status-pendente { background: var(--amber-bg); color: var(--amber); }
             .status-confirmado { background: var(--green-bg); color: var(--green); }
-            /* .status-concluido { background: rgba(14,134,217,.14); color: var(--blue-dark); } */
             .status-cancelado { background: var(--red-bg); color: var(--red); }
 
             .btn-icon {

@@ -14,7 +14,7 @@ A única desvantagem que eu vejo em utilizá-los, é que como o projeto possui u
 
 ## Implementações
 
-Atualmente o sistema consta com landing page dashboard responsivos, com: um formulário para o visitante com validação dos dados no frontend e backend, uma tabela com todos os agendamentos ordenada pela data de criação, paginação dos registros, atualização do status do agendamento.
+Atualmente o sistema consta com landing page dashboard responsivos, com: um formulário para o visitante com validação dos dados no frontend e backend, uma tabela com todos os agendamentos ordenada pelos registros mais recentes, paginação dos registros e um contador de registros totais, pendentes, confirmados e cancelados.
 
 Uma das coisas que inicialmente eu não havia colocado no formulário, era a opção de observações. A princípio eu nem havia pensado na ideia, mas depois lembrei de como o meu cachorro fica agitado quando vai tomar banho, e quantas outras particularidades os outros animais também podem ter, sejam em questões de saúde ou comportamento.
 
@@ -34,7 +34,7 @@ Apesar do sistema inicialmente ser simples, vejo que ele possui uma grande marge
 - Filtragem de dados;
 - Formulário de agendamento mais detalhado onde: o cliente seleciona apenas datas disponíveis a partir do dia atual (algo que seria mostrado para ele com base nas agendas dos funcionários), ao selecionar a data o cliente se depara com todos os profissionais disponíveis naquele dia com base no serviço desejado e seleciona um dos horários disponíveis;
 - Envio de e-mails automáticos para o cliente, avisando-o sobre a confirmação ou cancelamento do seu agendamento;
-- Dashboard com as a quantidade total de agendamentos, e o número de pendentes, confirmados e cancelados;
+- Atualização dos status;
 - Possibilidade de pagamento online caso o agendamento seja confirmado;
 - Mais opções de status, como concluído ou atrasado.
 

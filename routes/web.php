@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [AgendamentoController::class,"index"])->name("home");
 Route::post("/agendar", [AgendamentoController::class,"store"])->name("agendar");
+Route::patch("/atualizar", [AgendamentoController::class,"update"])->name("atualizar");
 
 Route::get("/dashboard", [AgendamentoController::class,"dashboard"])->middleware(['auth', 'verified'])->name("dashboard");
 
