@@ -36,7 +36,7 @@ class AgendamentoController extends Controller
     {
         $agendamento = Agendamento::create($request->all());
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Agendado com sucesso!');
     }
 
     /**
