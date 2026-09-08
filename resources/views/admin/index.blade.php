@@ -8,6 +8,7 @@
         $fallbackStyle = ['badge' => 'bg-gray-100 text-gray-800', 'border' => 'border-l-gray-300'];
     @endphp
 
+    {{-- Cabeçalho da página --}}
     <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
         <div>
             <h1>Agendamentos</h1>
@@ -15,6 +16,7 @@
         </div>
     </div>
 
+    {{-- Contador de registros --}}
     <div class="row g-3 mb-4">
         <div class="col-6 col-lg-3">
             <div class="stat-card">
@@ -42,6 +44,7 @@
         </div>
     </div>
 
+    {{-- Listagem de registros mobile --}}
     <div class="py-6 d-block d-md-none" x-data>
         <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8 space-y-6">
             @if (session('success'))
@@ -117,7 +120,7 @@
         </div>
     </div>
 
-
+    {{-- Listagem de registros para desktop --}}
     <div class="d-none d-md-block" x-data>
         <div class="admin-table-wrap">
             <div class="table-responsive">
@@ -166,6 +169,7 @@
                 </table>
             </div>
         </div>
+        {{-- -Paginação --}}
         @if ($agendamentos->hasPages())
             <div>
                 {{ $agendamentos->links() }}
@@ -173,6 +177,7 @@
         @endif
     </div>
 
+    {{-- Modal de visualização de dados --}}
     @foreach ($agendamentos as $agendamento)
         @php $style = $statusStyles[$agendamento->status] ?? $fallbackStyle; @endphp
 

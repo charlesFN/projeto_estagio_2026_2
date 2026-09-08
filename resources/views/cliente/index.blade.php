@@ -12,172 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --ink: #16232E;
-            --ink-soft: #3A4E5C;
-            --blue: #0E86D9;
-            --blue-dark: #0A63A3;
-            --blue-deep: #0B3A63;
-            --yellow: #FFC229;
-            --yellow-dark: #E8A800;
-            --paper: #FFFFFF;
-            --cloud: #E7F4FC;
-            --line: #BFE0F5;
-            --muted: #4C5F6E;
-        }
-
-        html { scroll-behavior: smooth; }
-        [id] { scroll-margin-top: 84px; }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after {
-            animation-duration: .01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: .01ms !important;
-            }
-        }
-
-        body {
-            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--ink);
-            background: var(--paper);
-            line-height: 1.6;
-        }
-
-        h1, h2 { font-family: 'Baloo 2', 'Nunito', sans-serif; color: var(--ink); font-weight: 700; line-height: 1.15; }
-        h1 { font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.25rem); }
-        h2 { font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.15rem); }
-        h3 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--ink); }
-
-        a { color: var(--blue); }
-        :focus-visible { outline: 2px solid var(--yellow-dark); outline-offset: 3px; }
-
-        .section { padding: 5.5rem 0; }
-        .section--cloud { background: var(--cloud); }
-        .section--paper { background: var(--paper); }
-        .section--dark { background: var(--blue-deep); color: rgba(255,255,255,.85); }
-        .section--dark h2 { color: #fff; }
-
-        .section-head { max-width: 46ch; margin-bottom: 3rem; }
-        .section-head p { color: var(--muted); font-size: 1.05rem; margin-top: .5rem; }
-        .section--dark .section-head p, .booking-lead { color: rgba(255,255,255,.72); }
-
-        .btn-cta {
-            background: var(--yellow); border: 1.5px solid var(--yellow); color: var(--ink);
-            font-weight: 700; border-radius: 999px;
-        }
-        .btn-cta:hover, .btn-cta:focus { background: var(--yellow-dark); border-color: var(--yellow-dark); color: var(--ink); }
-        .btn-ghost {
-            background: transparent; border: 1.5px solid var(--ink); color: var(--ink);
-            font-weight: 700; border-radius: 999px;
-        }
-        .btn-ghost:hover, .btn-ghost:focus { background: var(--ink); color: #fff; }
-
-        .navbar { background: var(--paper); border-bottom: 1px solid var(--line); padding-top: .8rem; padding-bottom: .8rem; }
-        .navbar-brand { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--ink); }
-        .navbar-brand span { color: var(--yellow-dark); }
-        .nav-link { font-weight: 700; color: var(--ink-soft) !important; margin: 0 .5rem; }
-        .nav-link:hover { color: var(--blue) !important; }
-        @media (max-width: 991.98px) {
-            .navbar-collapse { background: var(--paper); margin-top: .75rem; padding: 1rem .25rem; border-top: 1px solid var(--line); }
-        }
-
-        .hero { padding: 3.5rem 0 4.5rem; overflow: hidden; }
-        .hero .lead-text { max-width: 48ch; color: var(--muted); font-size: 1.15rem; margin: 1rem 0 2rem; }
-        .hero-trust { margin-top: 1.75rem; font-size: .95rem; color: var(--muted); }
-        .hero-trust i { color: var(--blue); margin-right: .4rem; }
-
-        .hero-visual { position: relative; max-width: 360px; margin: 2rem auto 0; }
-        .hero-illustration { width: 100%; height: auto; display: block; }
-        .mini-badge {
-            position: absolute; bottom: 6%; right: -4%; background: #fff; border-radius: 18px;
-            padding: .8rem 1rem; box-shadow: 0 20px 40px rgba(11,58,99,.28); max-width: 190px;
-        }
-        .mini-badge__status {
-            display: inline-flex; align-items: center; gap: .3rem; background: rgba(255,194,41,.3); color: var(--blue-dark);
-            font-weight: 800; font-size: .68rem; padding: .15rem .55rem; border-radius: 999px; margin-bottom: .45rem;
-            animation: confirmPop .45s ease-out .7s both;
-        }
-        @keyframes confirmPop { 0% { transform: scale(.6); opacity: 0; } 70% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
-        .mini-badge strong { display: block; font-family: 'Baloo 2', sans-serif; font-size: 1rem; }
-        .mini-badge .detail { color: var(--muted); font-size: .8rem; }
-        @media (max-width: 575.98px) { .mini-badge { right: 1%; } }
-
-        .wave-divider { display: block; line-height: 0; }
-        .wave-divider svg { width: 100%; height: 50px; display: block; }
-
-        .service-col p { color: var(--muted); max-width: 32ch; margin-bottom: 1.1rem; }
-        @media (min-width: 768px) {
-            .service-col + .service-col { border-left: 1px solid var(--line); }
-        }
-        @media (max-width: 767.98px) {
-            .service-col { margin-bottom: 2.5rem; }
-            .service-col:last-child { margin-bottom: 0; }
-        }
-        .service-icon {
-            width: 68px; height: 68px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.7rem; margin-bottom: 1.25rem;
-        }
-        .service-icon--blue { background: var(--blue); color: #fff; }
-        .service-icon--yellow { background: var(--yellow); color: var(--blue-dark); }
-        .service-link { color: var(--blue-dark); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid transparent; padding-bottom: 2px; }
-        .service-link:hover, .service-link:focus { border-bottom-color: var(--blue-dark); }
-
-        .steps-row { display: flex; flex-wrap: wrap; gap: 2.5rem 2rem; position: relative; }
-        .step { flex: 1 1 210px; }
-        .step__num {
-            display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px;
-            border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; margin-bottom: 1rem;
-            position: relative; z-index: 1;
-        }
-        .step p { color: var(--muted); max-width: 26ch; }
-        @media (min-width: 992px) {
-            .steps-row::before { content: ''; position: absolute; top: 21px; left: 5%; right: 5%; height: 2px; background: var(--line); z-index: 0; }
-        }
-
-        .booking-card {
-            background: #fff; border-radius: 28px; padding: 2.75rem; box-shadow: 0 30px 60px rgba(0,0,0,.35); color: var(--ink);
-        }
-        .booking-card .form-label { font-weight: 700; font-size: .9rem; margin-bottom: .4rem; }
-        .booking-card .form-control, .booking-card .form-select {
-            border: 1.5px solid var(--line); border-radius: 12px; padding: .65rem .9rem;
-        }
-        .booking-card .form-control:focus, .booking-card .form-select:focus {
-            border-color: var(--yellow); box-shadow: 0 0 0 .2rem rgba(255,194,41,.3);
-        }
-        .success-note {
-            margin-top: 1.5rem; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
-            color: #fff; padding: 1rem 1.25rem; border-radius: 14px; text-align: center;
-        }
-        .success-note i { color: var(--yellow); margin-right: .4rem; }
-        @media (max-width: 767.98px) { .booking-card { padding: 1.75rem; } }
-
-        footer { background: var(--blue-deep); color: rgba(255,255,255,.7); padding: 3.5rem 0 1.5rem; }
-        footer h6 { color: #fff; font-weight: 700; margin-bottom: 1rem; font-size: .95rem; }
-        footer a { color: rgba(255,255,255,.7); text-decoration: none; }
-        footer a:hover { color: var(--yellow); }
-        footer ul { list-style: none; padding: 0; margin: 0; }
-        footer li { margin-bottom: .55rem; }
-        .footer-social a {
-            display: inline-flex; width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.1);
-            align-items: center; justify-content: center; margin-right: .6rem;
-        }
-        .footer-social a:hover { background: var(--yellow); color: var(--ink); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 2.5rem; padding-top: 1.5rem; font-size: .85rem; text-align: center; color: rgba(255,255,255,.5); }
-
-        .whatsapp-float {
-            position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%;
-            background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,.25); z-index: 1000; transition: transform .15s ease;
-        }
-        .whatsapp-float:hover { transform: scale(1.08); color: #fff; }
-
-        @media (max-width: 767.98px) { .section { padding: 3.5rem 0; } }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/landingpage.css') }}">
 </head>
 <body>
+    {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
@@ -198,6 +36,7 @@
         </div>
     </nav>
 
+    {{-- Mensagem exibida caso o formulário seja enviado com sucesso --}}
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="bi bi-check-circle-fill me-2"></i>
@@ -206,6 +45,7 @@
         </div>
     @endif
 
+    {{-- Mensagem exibida caso haja um erro no envio do formulário --}}
     @if (session('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <i class="bi bi-ban-fill me-2"></i>
@@ -338,6 +178,7 @@
         </div>
     </section>
 
+    {{-- Formulário de agendamento --}}
     <section id="agendamento" class="section section--dark">
         <div class="container">
             <div class="row justify-content-center text-center">
@@ -353,7 +194,7 @@
 
                         <div class="col-md-6">
                             <label for="cliente" class="form-label">Nome completo</label>
-                            <input type="text" name="cliente" class="form-control @error('cliente') is-invalid @enderror" id="cliente" {{-- required --}}>
+                            <input type="text" name="cliente" class="form-control @error('cliente') is-invalid @enderror" id="cliente" required>
                             @error('cliente')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -363,7 +204,7 @@
 
                         <div class="col-md-6">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" {{-- required --}}>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" required>
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -373,7 +214,7 @@
 
                         <div class="col-md-6">
                             <label for="animal" class="form-label @error('animal') is-invalid @enderror">Pet</label>
-                            <select class="form-select" name="animal" id="animal" {{-- required --}}>
+                            <select class="form-select" name="animal" id="animal" required>
                                 <option value="{{ null }}" selected disabled>Selecione o tipo de pet...</option>
                                 <option value="cachorro">Cachorro</option>
                                 <option value="gato">Gato</option>
@@ -387,7 +228,7 @@
 
                         <div class="col-md-6">
                             <label for="nome_animal" class="form-label @error('nome_animal') is-invalid @enderror">Nome do pet</label>
-                            <input type="text" class="form-control" name="nome_animal" id="nome_animal" placeholder="Ex: Rex, Mimi..." {{-- required --}}>
+                            <input type="text" class="form-control" name="nome_animal" id="nome_animal" placeholder="Ex: Rex, Mimi..." required>
                             @error('nome_animal')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -397,7 +238,7 @@
 
                         <div class="col-md-6">
                             <label for="servico" class="form-label @error('servico') is-invalid @enderror">Tipo de serviço</label>
-                            <select class="form-select" name="servico" id="servico" {{-- required --}}>
+                            <select class="form-select" name="servico" id="servico" required>
                                 <option value="{{ null }}" selected disabled>Selecione um serviço</option>
                                 <option value="consulta">Consulta veterinária</option>
                                 <option value="vacinacao">Vacinação</option>
@@ -413,7 +254,7 @@
 
                         <div class="col-md-6">
                             <label for="data" class="form-label @error('data') is-invalid @enderror">Data desejada</label>
-                            <input type="date" class="form-control" name="data" id="data" {{-- required --}}>
+                            <input type="date" class="form-control" name="data" id="data" required>
                             @error('data')
                                 <div class="invalid-feedback">
                                     {{ $message }}
